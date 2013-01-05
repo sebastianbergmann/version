@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<phpdox xmlns="http://phpdox.de/config">
+ <project name="Version" source="../src" workdir="phpdox">
+  <collector publiconly="false">
+   <include mask="*.php" />
+   <exclude mask="*autoload.php" />
+  </collector>
+
+  <generator output=".">
+   <build engine="html" enabled="true" output="api"/>
+  </generator>
+ </project>
+</phpdox>
