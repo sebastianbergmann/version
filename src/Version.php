@@ -128,7 +128,7 @@ namespace SebastianBergmann
 
             $path = dirname($path);
 
-            if ($path == '/') {
+            if (strlen($path) == strlen(dirname($path))) {
                 return FALSE;
             }
 
