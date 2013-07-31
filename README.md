@@ -4,9 +4,9 @@
 
 ## Installation
 
-There are two supported ways of installing Version.
+### Composer
 
-You can use the [PEAR Installer](http://pear.php.net/manual/en/guide.users.commandline.cli.php) or [Composer](http://getcomposer.org/) to download and install Version.
+Simply add a dependency on `sebastian/version` to your project's `composer.json` file if you use [Composer](http://getcomposer.org/) to manage the dependencies of your project.
 
 ### PEAR Installer
 
@@ -14,10 +14,6 @@ The following two commands (which you may have to run as `root`) are all that is
 
     pear config-set auto_discover 1
     pear install pear.phpunit.de/Version
-
-### Composer
-
-To add Version as a local, per-project dependency to your project, simply add a dependency on `sebastian/version` to your project's `composer.json` file.
 
 ## Usage
 
@@ -46,5 +42,5 @@ When a new release is prepared, the string that is passed to the constructor as 
 
 * If `$path` is not (part of) a Git repository and `$release` is in `X.Y.Z` format then `$release` is returned as-is.
 * If `$path` is not (part of) a Git repository and `$release` is in `X.Y` format then `$release` is returned suffixed with `-dev`.
-* If `$path` is (part of) a Git repository and `$release` is in `X.Y.Z` format then the output of `git describe --tags` is returned as is.
+* If `$path` is (part of) a Git repository and `$release` is in `X.Y.Z` format then the output of `git describe --tags` is returned as-is.
 * If `$path` is (part of) a Git repository and `$release` is in `X.Y` format then a string is returned that begins with `X.Y` and ends with information from `git describe --tags`.
