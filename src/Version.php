@@ -100,7 +100,7 @@ class Version
      */
     private function getGitInformation($path)
     {
-        if (!$this->isGitRepository($path)) {
+        if (!is_dir($path . DIRECTORY_SEPARATOR . '.git')) {
             return false;
         }
 
@@ -114,24 +114,5 @@ class Version
         }
 
         return $result;
-    }
-
-    /**
-     * @param  string $path
-     * @return boolean
-     */
-    private function isGitRepository($path)
-    {
-        if (is_dir($path . DIRECTORY_SEPARATOR . '.git')) {
-            return true;
-        }
-
-        $path = dirname($path);
-
-        if (strlen($path) == strlen(dirname($path))) {
-            return false;
-        }
-
-        return $this->isGitRepository($path);
     }
 }
