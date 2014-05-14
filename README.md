@@ -4,16 +4,7 @@
 
 ## Installation
 
-### Composer
-
 Simply add a dependency on `sebastian/version` to your project's `composer.json` file if you use [Composer](http://getcomposer.org/) to manage the dependencies of your project.
-
-### PEAR Installer
-
-The following two commands (which you may have to run as `root`) are all that is required to install Version using the PEAR Installer:
-
-    pear config-set auto_discover 1
-    pear install pear.phpunit.de/Version
 
 ## Usage
 
