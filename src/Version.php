@@ -86,7 +86,7 @@ class Version
                 } else {
                     $git = explode('-', $git);
 
-                    $this->version = $this->release . '-' . $git[2];
+                    $this->version = $this->release . '-' . end($git);
                 }
             }
         }
