@@ -74,6 +74,7 @@ class Version
 
         $dir = getcwd();
         chdir($path);
+        $returnCode = 1;
         $result = @exec('git describe --tags 2>&1', $output, $returnCode);
         chdir($dir);
 
