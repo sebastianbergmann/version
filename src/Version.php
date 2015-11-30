@@ -67,11 +67,21 @@ class Version
             return false;
         }
 
-        $dir = getcwd();
-        chdir($path);
-        $returnCode = 1;
-        $result     = @exec('git describe --tags 2>&1', $output, $returnCode);
-        chdir($dir);
+        $process = proc_open("git describe --tags", array(
+            1 => array("pipe", "w"),
+            2 => array("pipe", "w"),
+        ), $pipes, $path);
+
+        if (!is_resource($process)) {
+            return false;
+        }
+
+        $result = stream_get_contents($pipes[1]);
+
+        fclose($pipes[1]);
+        fclose($pipes[2]);
+
+        $returnCode = proc_close($process);
 
         if ($returnCode !== 0) {
             return false;
