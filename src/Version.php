@@ -76,7 +76,7 @@ class Version
             return false;
         }
 
-        $result = stream_get_contents($pipes[1]);
+        $result = trim(stream_get_contents($pipes[1]));
 
         fclose($pipes[1]);
         fclose($pipes[2]);
