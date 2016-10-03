@@ -4,7 +4,13 @@
 
 ## Installation
 
-Simply add a dependency on `sebastian/version` to your project's `composer.json` file if you use [Composer](http://getcomposer.org/) to manage the dependencies of your project.
+  To add this library as a local, per-project dependency to your project using [Composer](https://getcomposer.org/), simply add a dependency on `phpunit/phpunit-mock-objects` to your project's `composer.json`:
+
+    composer require sebastian/version
+
+If you only need this library during development, for instance to run your project's test suite, then you should add it as a development-time dependency:
+
+    composer require --dev sebastian/version
 
 ## Usage
 
