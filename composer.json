@@ -13,8 +13,16 @@
     "support": {
         "issues": "https://github.com/sebastianbergmann/version/issues"
     },
+    "config": {
+        "platform": {
+            "php": "7.3.0"
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "prefer-stable": true,
     "require": {
-        "php": "^7.1"
+        "php": "^7.3"
     },
     "autoload": {
         "classmap": [
