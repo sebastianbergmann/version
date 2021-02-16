@@ -6,12 +6,15 @@
 
 You can add this library as a local, per-project dependency to your project using [Composer](https://getcomposer.org/):
 
-    composer require sebastian/version
+```
+composer require sebastian/version
+```
 
 If you only need this library during development, for instance to run your project's test suite, then you should add it as a development-time dependency:
 
-    composer require --dev sebastian/version
-
+```
+composer require --dev sebastian/version
+```
 ## Usage
 
 The constructor of the `SebastianBergmann\Version` class expects two parameters:
@@ -23,15 +26,17 @@ Apart from the constructor, the `SebastianBergmann\Version` class has a single p
 
 Here is a contrived example that shows the basic usage:
 
-    <?php
-    $version = new SebastianBergmann\Version(
-      '3.7.10', '/usr/local/src/phpunit'
-    );
+```php
+<?php declare(strict_types=1);
+use SebastianBergmann\Version;
 
-    var_dump($version->getVersion());
-    ?>
+$version = new Version('1.0.0', __DIR__);
 
-    string(18) "3.7.10-17-g00f3408"
+var_dump($version->getVersion());
+```
+```
+string(18) "1.0.0-17-g00f3408"
+```
 
 When a new release is prepared, the string that is passed to the constructor as the first argument needs to be updated.
 
