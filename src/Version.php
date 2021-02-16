@@ -22,20 +22,11 @@ use function trim;
 
 final class Version
 {
-    /**
-     * @var string
-     */
-    private $path;
+    private string $path;
 
-    /**
-     * @var string
-     */
-    private $release;
+    private string $release;
 
-    /**
-     * @var string
-     */
-    private $version;
+    private ?string $version = null;
 
     public function __construct(string $release, string $path)
     {
