@@ -59,10 +59,7 @@ final class Version
         return $this->version;
     }
 
-    /**
-     * @return bool|string
-     */
-    private function getGitInformation(string $path)
+    private function getGitInformation(string $path): bool|string
     {
         if (!is_dir($path . DIRECTORY_SEPARATOR . '.git')) {
             return false;
