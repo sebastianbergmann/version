@@ -63,12 +63,13 @@ final class Version
      */
     private function getGitInformation(string $path)
     {
-        if (!\is_dir($path . DIRECTORY_SEPARATOR . '.git')) {
+        $git_dir = $path . DIRECTORY_SEPARATOR . '.git';
+        if (!\is_dir($git_dir)) {
             return false;
         }
 
         $process = \proc_open(
-            'git describe --tags',
+            'git --git-dir="' . $git_dir . '" describe --tags',
             [
                 1 => ['pipe', 'w'],
                 2 => ['pipe', 'w'],
