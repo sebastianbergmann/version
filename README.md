@@ -1,3 +1,5 @@
+[![Latest Stable Version](https://poser.pugx.org/sebastian/version/v/stable.png)](https://packagist.org/packages/sebastian/version)
+
 # sebastian/version
 
 **sebastian/version** is a library that helps with managing the version number of Git-hosted PHP projects.
