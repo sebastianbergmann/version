@@ -1,6 +1,6 @@
-# Version
+# sebastian/version
 
-**Version** is a library that helps with managing the version number of Git-hosted PHP projects.
+**sebastian/version** is a library that helps with managing the version number of Git-hosted PHP projects.
 
 ## Installation
 
