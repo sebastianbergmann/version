@@ -22,40 +22,39 @@ use function trim;
 
 final class Version
 {
-    private string $path;
-    private string $release;
-    private ?string $version = null;
+    private readonly string $version;
 
     public function __construct(string $release, string $path)
     {
-        $this->release = $release;
-        $this->path    = $path;
+        $this->version = $this->generate($release, $path);
     }
 
     public function asString(): string
     {
-        if ($this->version !== null) {
-            return $this->version;
-        }
-
-        if (substr_count($this->release, '.') + 1 === 3) {
-            $this->version = $this->release;
-        } else {
-            $this->version = $this->release . '-dev';
-        }
-
-        $git = $this->getGitInformation($this->path);
-
-        if ($git) {
-            if (substr_count($this->release, '.') + 1 === 3) {
-                $this->version = $git;
-            } else {
-                $git           = explode('-', $git);
-                $this->version = $this->release . '-' . end($git);
-            }
-        }
-
         return $this->version;
+    }
+
+    private function generate(string $release, string $path): string
+    {
+        if (substr_count($release, '.') + 1 === 3) {
+            $version = $release;
+        } else {
+            $version = $release . '-dev';
+        }
+
+        $git = $this->getGitInformation($path);
+
+        if (!$git) {
+            return $version;
+        }
+
+        if (substr_count($release, '.') + 1 === 3) {
+            return $git;
+        }
+
+        $git = explode('-', $git);
+
+        return $release . '-' . end($git);
     }
 
     private function getGitInformation(string $path): bool|string
