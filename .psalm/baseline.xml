@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.6.0@e784128902dfe01d489c4123d69918a9f3c1eac5">
+  <file src="src/Version.php">
+    <InvalidReturnStatement>
+      <code>$git</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code>string</code>
+    </InvalidReturnType>
+    <PossiblyInvalidArgument>
+      <code>$git</code>
+    </PossiblyInvalidArgument>
+  </file>
+</files>
