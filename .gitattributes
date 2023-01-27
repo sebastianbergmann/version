@@ -1,6 +1,6 @@
-/.github        export-ignore
-/.gitattributes export-ignore
-/.gitignore     export-ignore
-/.php_cs.dist   export-ignore
+/.github                export-ignore
+/.gitattributes         export-ignore
+/.gitignore             export-ignore
+/.php-cs-fixer.dist.php export-ignore
 
 *.php diff=php
