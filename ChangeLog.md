@@ -4,6 +4,10 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 ## [4.0.0] - 2023-02-03
 
+### Changed
+
+* `Version::getVersion()` has been renamed to `Version::asString()`
+
 ### Removed
 
 * This component is no longer supported on PHP 7.3, PHP 7.4, and PHP 8.0

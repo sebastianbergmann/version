@@ -32,7 +32,7 @@ final class Version
         $this->path    = $path;
     }
 
-    public function getVersion(): string
+    public function asString(): string
     {
         if ($this->version === null) {
             if (substr_count($this->release, '.') + 1 === 3) {
