@@ -34,23 +34,24 @@ final class Version
 
     public function asString(): string
     {
-        if ($this->version === null) {
+        if ($this->version !== null) {
+            return $this->version;
+        }
+
+        if (substr_count($this->release, '.') + 1 === 3) {
+            $this->version = $this->release;
+        } else {
+            $this->version = $this->release . '-dev';
+        }
+
+        $git = $this->getGitInformation($this->path);
+
+        if ($git) {
             if (substr_count($this->release, '.') + 1 === 3) {
-                $this->version = $this->release;
+                $this->version = $git;
             } else {
-                $this->version = $this->release . '-dev';
-            }
-
-            $git = $this->getGitInformation($this->path);
-
-            if ($git) {
-                if (substr_count($this->release, '.') + 1 === 3) {
-                    $this->version = $git;
-                } else {
-                    $git = explode('-', $git);
-
-                    $this->version = $this->release . '-' . end($git);
-                }
+                $git           = explode('-', $git);
+                $this->version = $this->release . '-' . end($git);
             }
         }
 
