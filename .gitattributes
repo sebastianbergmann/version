@@ -1,6 +1,10 @@
 /.github                export-ignore
+/.phive                 export-ignore
+/.psalm                 export-ignore
+/tools                  export-ignore
 /.gitattributes         export-ignore
 /.gitignore             export-ignore
 /.php-cs-fixer.dist.php export-ignore
+/build.xml              export-ignore
 
 *.php diff=php
