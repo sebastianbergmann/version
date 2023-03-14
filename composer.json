@@ -11,7 +11,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/sebastianbergmann/version/issues"
+        "issues": "https://github.com/sebastianbergmann/version/issues",
+        "security": "https://github.com/sebastianbergmann/version/security/policy"
     },
     "config": {
         "platform": {
