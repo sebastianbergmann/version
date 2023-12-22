@@ -16,14 +16,15 @@
     },
     "config": {
         "platform": {
-            "php": "8.1.0"
+            "php": "8.2.0"
         },
         "optimize-autoloader": true,
         "sort-packages": true
     },
     "prefer-stable": true,
+    "minimum-stability": "dev",
     "require": {
-        "php": ">=8.1"
+        "php": ">=8.2"
     },
     "autoload": {
         "classmap": [
@@ -32,7 +33,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "4.0-dev"
+            "dev-main": "5.0-dev"
         }
     }
 }
