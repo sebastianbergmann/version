@@ -20,7 +20,7 @@ use function stream_get_contents;
 use function substr_count;
 use function trim;
 
-final class Version
+final readonly class Version
 {
     private readonly string $version;
 
