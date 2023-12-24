@@ -70,7 +70,7 @@ final class Version
                 2 => ['pipe', 'w'],
             ],
             $pipes,
-            $path
+            $path,
         );
 
         if (!is_resource($process)) {
