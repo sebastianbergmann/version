@@ -96,7 +96,7 @@ final readonly class Version
             return false;
         }
 
-        $result = trim(stream_get_contents($pipes[1]));
+        $result = trim((string) stream_get_contents($pipes[1]));
 
         fclose($pipes[1]);
         fclose($pipes[2]);
