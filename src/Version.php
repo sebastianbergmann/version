@@ -23,13 +23,13 @@ use function trim;
 final readonly class Version
 {
     /**
-     * @psalm-var non-empty-string
+     * @var non-empty-string
      */
     private string $version;
 
     /**
-     * @psalm-param non-empty-string $release
-     * @psalm-param non-empty-string $path
+     * @param non-empty-string $release
+     * @param non-empty-string $path
      */
     public function __construct(string $release, string $path)
     {
@@ -37,7 +37,7 @@ final readonly class Version
     }
 
     /**
-     * @psalm-return non-empty-string
+     * @return non-empty-string
      */
     public function asString(): string
     {
@@ -45,10 +45,10 @@ final readonly class Version
     }
 
     /**
-     * @psalm-param non-empty-string $release
-     * @psalm-param non-empty-string $path
+     * @param non-empty-string $release
+     * @param non-empty-string $path
      *
-     * @psalm-return non-empty-string
+     * @return non-empty-string
      */
     private function generate(string $release, string $path): string
     {
@@ -74,7 +74,7 @@ final readonly class Version
     }
 
     /**
-     * @psalm-param non-empty-string $path
+     * @param non-empty-string $path
      */
     private function getGitInformation(string $path): false|string
     {
