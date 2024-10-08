@@ -83,7 +83,7 @@ final readonly class Version
         }
 
         $process = proc_open(
-            'git describe --tags',
+            ['git', 'describe', '--tags'],
             [
                 1 => ['pipe', 'w'],
                 2 => ['pipe', 'w'],
