@@ -9,6 +9,7 @@
  */
 namespace SebastianBergmann;
 
+use const DIRECTORY_SEPARATOR;
 use function end;
 use function explode;
 use function fclose;
