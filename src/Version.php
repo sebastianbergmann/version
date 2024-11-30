@@ -85,7 +85,7 @@ final readonly class Version
             return false;
         }
 
-        $process = proc_open(
+        $process = @proc_open(
             ['git', 'describe', '--tags'],
             [
                 1 => ['pipe', 'w'],
