@@ -63,7 +63,7 @@ final readonly class Version
 
         $git = $this->getGitInformation($path);
 
-        if (!$git) {
+        if ($git === false) {
             return $version;
         }
 
