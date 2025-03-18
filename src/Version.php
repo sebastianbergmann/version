@@ -78,6 +78,8 @@ final readonly class Version
 
     /**
      * @param non-empty-string $path
+     *
+     * @return false|non-empty-string
      */
     private function getGitInformation(string $path): false|string
     {
@@ -113,6 +115,8 @@ final readonly class Version
         if ($returnCode !== 0) {
             return false;
         }
+
+        assert($result !== '');
 
         return $result;
     }
