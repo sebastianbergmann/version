@@ -1,13 +1,13 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
 on:
-  - "pull_request"
-  - "push"
+  - pull_request
+  - push
 
-name: "CI"
+name: CI
 
 env:
-  COMPOSER_ROOT_VERSION: "6.0.x-dev"
+  COMPOSER_ROOT_VERSION: 6.0.x-dev
 
 permissions:
   contents: read
