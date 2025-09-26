@@ -14,7 +14,6 @@ use function assert;
 use function end;
 use function explode;
 use function fclose;
-use function is_array;
 use function is_dir;
 use function is_resource;
 use function proc_close;
@@ -99,7 +98,6 @@ final readonly class Version
             return false;
         }
 
-        assert(is_array($pipes));
         assert(isset($pipes[1]) && is_resource($pipes[1]));
         assert(isset($pipes[2]) && is_resource($pipes[2]));
 
