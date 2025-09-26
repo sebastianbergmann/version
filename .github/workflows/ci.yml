@@ -8,6 +8,7 @@ name: CI
 
 env:
   COMPOSER_ROOT_VERSION: 6.0.x-dev
+  PHP_VERSION: 8.4
 
 permissions:
   contents: read
@@ -17,16 +18,29 @@ jobs:
     name: Coding Guidelines
 
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Use local branch
+        shell: bash
+        run: |
+          BRANCH=$([ "${{ github.event_name }}" == "pull_request" ] && echo "${{ github.head_ref }}" || echo "${{ github.ref_name }}")
+          git branch -D $BRANCH 2>/dev/null || true
+          git branch $BRANCH HEAD
+          git checkout $BRANCH
 
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
+          php-version: ${{ env.PHP_VERSION }}
           coverage: none
+          tools: none
 
       - name: Run PHP-CS-Fixer
         run: ./tools/php-cs-fixer fix --dry-run --show-progress=dots --using-cache=no --verbose
@@ -35,16 +49,29 @@ jobs:
     name: Static Analysis
 
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Use local branch
+        shell: bash
+        run: |
+          BRANCH=$([ "${{ github.event_name }}" == "pull_request" ] && echo "${{ github.head_ref }}" || echo "${{ github.ref_name }}")
+          git branch -D $BRANCH 2>/dev/null || true
+          git branch $BRANCH HEAD
+          git checkout $BRANCH
 
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
+          php-version: ${{ env.PHP_VERSION }}
           coverage: none
+          tools: none
 
       - name: Install dependencies with Composer
         run: ./tools/composer update --no-interaction --no-ansi --no-progress
