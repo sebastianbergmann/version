@@ -7,5 +7,6 @@
 /.php-cs-fixer.dist.php export-ignore
 /build.xml              export-ignore
 /phpstan.neon           export-ignore
+/renovate.json          export-ignore
 
 *.php diff=php
