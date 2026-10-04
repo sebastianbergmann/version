@@ -10,10 +10,12 @@
 namespace SebastianBergmann;
 
 use const DIRECTORY_SEPARATOR;
+use function array_slice;
 use function assert;
 use function end;
 use function explode;
 use function fclose;
+use function implode;
 use function is_dir;
 use function is_resource;
 use function proc_close;
@@ -60,7 +62,7 @@ final readonly class Version
             $version = $release . '-dev';
         }
 
-        $git = $this->getGitInformation($path);
+        $git = $this->getGitInformation($path, $release);
 
         if ($git === false) {
             return $version;
@@ -77,17 +79,39 @@ final readonly class Version
 
     /**
      * @param non-empty-string $path
+     * @param non-empty-string $release
      *
      * @return false|non-empty-string
      */
-    private function getGitInformation(string $path): false|string
+    private function getGitInformation(string $path, string $release): false|string
     {
         if (!is_dir($path . DIRECTORY_SEPARATOR . '.git')) {
             return false;
         }
 
+        if (substr_count($release, '.') + 1 === 3) {
+            $series = implode('.', array_slice(explode('.', $release), 0, 2));
+
+            $result = $this->describe($path, ['--match', $series . '.*']);
+
+            if ($result !== false) {
+                return $result;
+            }
+        }
+
+        return $this->describe($path, []);
+    }
+
+    /**
+     * @param non-empty-string $path
+     * @param list<string>     $arguments
+     *
+     * @return false|non-empty-string
+     */
+    private function describe(string $path, array $arguments): false|string
+    {
         $process = @proc_open(
-            ['git', 'describe', '--tags'],
+            ['git', 'describe', '--tags', ...$arguments],
             [
                 1 => ['pipe', 'w'],
                 2 => ['pipe', 'w'],
