@@ -46,5 +46,5 @@ When a new release is prepared, the string that is passed to the constructor as 
 
 * If `$path` is not (part of) a Git repository and `$release` is in `X.Y.Z` format then `$release` is returned as-is.
 * If `$path` is not (part of) a Git repository and `$release` is in `X.Y` format then `$release` is returned suffixed with `-dev`.
-* If `$path` is (part of) a Git repository and `$release` is in `X.Y.Z` format then the output of `git describe --tags` is returned as-is.
+* If `$path` is (part of) a Git repository and `$release` is in `X.Y.Z` format then the output of `git describe --tags --match 'X.Y.*'` is returned as-is. If no tag of the `X.Y` series is reachable, the output of `git describe --tags` is returned as-is.
 * If `$path` is (part of) a Git repository and `$release` is in `X.Y` format then a string is returned that begins with `X.Y` and ends with information from `git describe --tags`.
