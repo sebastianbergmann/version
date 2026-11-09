@@ -2,7 +2,7 @@
 
 All notable changes are documented in this file using the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
-## [7.1.0] - 2026-MM-DD
+## [7.1.0] - 2026-11-09
 
 ### Changed
 
@@ -94,7 +94,7 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 * This component is no longer supported on PHP 7.1 and PHP 7.2
 
-[7.1.0]: https://github.com/sebastianbergmann/version/compare/7.0.1...main
+[7.1.0]: https://github.com/sebastianbergmann/version/compare/7.0.1...7.1.0
 [7.0.1]: https://github.com/sebastianbergmann/version/compare/7.0.0...7.0.1
 [7.0.0]: https://github.com/sebastianbergmann/version/compare/6.0...7.0.0
 [6.0.2]: https://github.com/sebastianbergmann/version/compare/6.0.1...6.0
