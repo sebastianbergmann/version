@@ -8,6 +8,10 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 * When no tag is reachable from `HEAD`, the version string contains the abbreviated hash of `HEAD` (`X.Y-g00f3408` or `X.Y.Z-g00f3408`) instead of `X.Y-dev` or `X.Y.Z`
 
+### Fixed
+
+* The version string for a release series (`X.Y`) ends with the name of a tag instead of the abbreviated hash of `HEAD` when `HEAD` is tagged
+
 ## [7.0.1] - 2026-10-04
 
 ### Fixed
@@ -19,6 +23,12 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 ### Removed
 
 * This component is no longer supported on PHP 8.3
+
+## [6.0.2] - 2026-MM-DD
+
+### Fixed
+
+* The version string for a release series (`X.Y`) ends with the name of a tag instead of the abbreviated hash of `HEAD` when `HEAD` is tagged
 
 ## [6.0.1] - 2026-10-04
 
@@ -87,6 +97,7 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 [7.1.0]: https://github.com/sebastianbergmann/version/compare/7.0.1...main
 [7.0.1]: https://github.com/sebastianbergmann/version/compare/7.0.0...7.0.1
 [7.0.0]: https://github.com/sebastianbergmann/version/compare/6.0...7.0.0
+[6.0.2]: https://github.com/sebastianbergmann/version/compare/6.0.1...6.0
 [6.0.1]: https://github.com/sebastianbergmann/version/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/sebastianbergmann/version/compare/5.0...6.0.0
 [5.0.2]: https://github.com/sebastianbergmann/version/compare/5.0.1...5.0.2
