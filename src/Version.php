@@ -97,9 +97,15 @@ final readonly class Version
             if ($result !== false) {
                 return $result;
             }
+
+            return $this->describe($path, []);
         }
 
-        return $this->describe($path, []);
+        // Without --long, "git describe" prints only the name of the tag when
+        // HEAD is tagged; with it, the output always ends with the abbreviated
+        // hash of HEAD, which is what the version string for a release series
+        // ends with
+        return $this->describe($path, ['--long']);
     }
 
     /**
