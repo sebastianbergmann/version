@@ -55,6 +55,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'phpstan/phpstan-deprecation-rules' => array(
+            'pretty_version' => '2.0.5',
+            'version' => '2.0.5.0',
+            'reference' => '67bedd65c24bc72840afc45aed48b1059dd44bec',
+            'type' => 'phpstan-extension',
+            'install_path' => __DIR__ . '/../phpstan/phpstan-deprecation-rules',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
         'phpstan/phpstan-strict-rules' => array(
             'pretty_version' => '2.1.1',
             'version' => '2.1.1.0',
