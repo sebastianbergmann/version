@@ -1,5 +1,4 @@
 /.github                export-ignore
-/.phive                 export-ignore
 /build                  export-ignore
 /tools                  export-ignore
 /.gitattributes         export-ignore
